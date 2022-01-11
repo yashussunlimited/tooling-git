@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+
+<!-- BEGIN: Head-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="">
+    <meta name="keywords" content="admin template, Yashuss Unlimitedtemplate, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <title>Tooling</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://sparkminda.com/wp-content/uploads/2016/06/favicon.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/fonts/material-icons/material-icons.css">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/css/material-vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material-extended.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material-colors.css">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/core/menu/menu-types/material-vertical-menu.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/calendar-list-view.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/plugins/animate/animate.css">
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/media.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom-media.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body onload="getToolingFormData()" class="vertical-layout material-vertical-layout material-layout 2-columns fixed-navbar menu-collapsed" data-col="2-columns">
+
+    <!-- BEGIN: Header-->
+    <nav
+        class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-primary navbar-shadow">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left">
+                        
+                        <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#">
+                                <h3 class="content-header-title mb-0 text-white">Tooling</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <!-- Calendar List View -->
+            <section id="configuration" class="pt-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Tooling List View</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-actions-div">
+                                    <div class="d-flex">
+                                        <button class="btn btn-float btn-primary waves-effect waves-light btn-round-yu  mr-1" id="" onclick="showAddModal()">
+                                            <i class="ft-plus" data-toggle="tooltip" title="Add"></i>
+                                        </button>
+                                        <button class="btn btn-float btn-primary waves-effect waves-light btn-round-yu mr-1 d-none" data-toggle="modal" data-target="#upload_modal">
+                                            <i class="ft-upload" data-toggle="tooltip" title="Import"></i>
+                                        </button>
+                                        <button class="btn btn-float btn-primary waves-effect waves-light btn-round-yu  mr-1 d-none" id="" data-toggle="modal" data-target="#filter_modal">
+                                            <i class="ft-filter" data-toggle="tooltip" title="Filter"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard ">
+                                    <div class="list-view-div">
+                                        <p class="alert alert-warning" id="loader"> Loading Data .... </p>
+                                        <table id="tooling_list_view">
+                                            <thead>
+                                                <tr class="tableizer-firstrow">
+                                                    <th data-orderable="false">#</th>
+                                                    <th>Action</th>
+                                                    <th>Project ID</th>
+                                                    <th>Task ID</th>
+                                                    <th>Part Name</th>
+                                                    <th>Part Number</th>
+                                                    <th>Supplier</th>
+                                                    <th>Make / Buy</th>
+                                                    <th>Casting / Plastics / Forging</th>
+                                                    <th>Number of Cavities</th>
+                                                    
+                                                    <th>Final Design Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Sourcing Decision Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>CIJ Approval Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>LOI Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Release PO Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+
+                                                    <th>Evaluation Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>DFM Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Development Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Design ready Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Design approval Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+
+                                                    <th>Ordered and Received Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Rough machining Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Final Machining Done Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Assembly of tools Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Review at Minda Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Tools Updated Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Parts Submitted at Minda Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Documents submitted Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Parts Submitted for Grain Approval Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Grain Approval Given to Supplier Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Tools Sent to Grainer Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Graining Completed & Parts Produced Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Grain Parts Approved Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+
+                                                    <th>Tools Shifting Approval Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Tools Shifted Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Parts Produced and Submitted Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Srries go-ahead Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+
+                                                    <th>PPAP Activities Done Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>Supplier Quality Audit Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+                                                    <th>PPAP Approved Date</th>
+                                                    <th>Day Difference </th>
+                                                    <th>Status</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody id="result">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/ Calendar List View -->
+
+            <!-- upload modal -->
+            <div class="modal fade text-left" id="upload_modal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class>Import Data</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="radio">
+                                <div class="row justify-content-between align-items-center">
+                                    <label class="mr-1 text-bold-400" for="id4">Select File Type</label>
+                                    <button
+                                        class="btn btn-float btn-secondary waves-effect waves-light btn-round-yu  mr-1"
+                                        id="">
+                                        <i class="ft-download"></i>
+                                    </button>
+                                </div>
+                                <div class="row jcontent justify-content-center mb-2">
+                                    <div class="radio_box-style">
+                                        <input type="radio" name="filetype" id="upload_excel">
+                                        <label for="upload_excel">
+                                            <span></span>
+                                            <i class='ft-file font-size-46'></i><br>
+                                            <span>XLS/XLSX</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio_box-style">
+                                        <input type="radio" name="filetype" id="upload_csv">
+                                        <label for="upload_csv">
+                                            <span></span>
+                                            <i class='ft-file font-size-46'></i><br>
+                                            <span>CSV</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="form-group">
+                                    <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-width btn btn-primary text-white rounded" id="importfile"
+                                data-dismiss="modal" data-toggle="modal" data-target="#upload_modal_2">Import</button>
+                            <button type="button" data-dismiss="modal"
+                                class="btn-width btn btn-secondary text-white rounded">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- upload modal -->
+
+            <!-- modal for upload file 2-->
+            <div id="upload_modal_2" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Map Fields</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <!-- <h6>Default Fields</h6> -->
+
+                        </div>
+                        <div class="modal-body">
+                            <table id="column_mapping_table" class="table p">
+                                <thead>
+                                    <tr>
+                                        <th class="c1 bg border-0">LIST OF FIELDS IN TABLE</th>
+                                        <th class="c2 bg border-0">COLUMNS IN FILE</th>
+                                        <th class="c2 bg border-0"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="tc">Table Header1</td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header1">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25"> Header 2</option>
+                                                    <option value="50">Header 3</option>
+                                                    <option value="100"> Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Table Date Header2</td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header2">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25"> Header 2</option>
+                                                    <option value="50"> Header 3</option>
+                                                    <option value="100"> Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header2_date_format">
+                                                    <option value="10">dd.MM.yyyy</option>
+                                                    <option value="25">dd/MM/yyyy</option>
+                                                    <option value="50">MM.dd.yyyy</option>
+                                                    <option value="100">yyyy-MM-dd</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table Date Header3</td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header3">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25">Header 2</option>
+                                                    <option value="50">Header 3</option>
+                                                    <option value="100">Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header3_date_format">
+                                                    <option value="10">dd.MM.yyyy</option>
+                                                    <option value="25">dd/MM/yyyy</option>
+                                                    <option value="50">MM.dd.yyyy</option>
+                                                    <option value="100">yyyy-MM-dd</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table Header4</td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header4">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25"> Header 2</option>
+                                                    <option value="50"> Header 3</option>
+                                                    <option value="100">Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table Header5</td>
+                                        <td>
+                                            <div>
+
+                                                <select class="form-control" id="table_header5">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25"> Header 2</option>
+                                                    <option value="50"> Header 3</option>
+                                                    <option value="100">Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table Header6</td>
+                                        <td>
+                                            <div>
+                                                <select class="form-control" id="table_header6">
+                                                    <option value="10"> Header 1</option>
+                                                    <option value="25"> Header 2</option>
+                                                    <option value="50">Header 3</option>
+                                                    <option value="100">Header 4</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="bg">
+                                <button type="button"
+                                    class="btn-width btn btn-primary text-white rounded waves-effect waves-light"
+                                    id="continuebtn">Continue</button>
+                                <button type="button" data-dismiss="modal"
+                                    class="btn-width btn btn-secondary text-white rounded waves-effect waves-light"
+                                    id="cancelbtn">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add modal -->
+            <div class="modal fade text-left" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                    <form id="addForm" onsubmit="return false;">
+                        <div class="modal-header">
+                            <h4 class>Tooling Form</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-12">
+                                    <div class="row mb-2 mt-1">
+                                        <div class="col-12">
+                                            <div class="d-flex align-items-center justify-content-between floating-head">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td><h5 class="mb-0">Project ID <span class="text-danger">*</span> :</h5></td>
+                                                            <td>
+                                                                <h5><input name="projectId" id="projectId" class="custom-input-yu" type="text" placeholder="Project ID" /></h5>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="title-table-row1">
+                                                                <h5 class="mb-0">Project Name : </h5>
+                                                            </td>
+                                                            <td class="title-table-row2">
+                                                                <h5><input name="projectName" id="projectName" class="custom-input-yu" type="text" placeholder="Project Name" /></h5>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="title-table-row1">
+                                                                <h5 class="mb-0">Project Manager : </h5>
+                                                            </td>
+                                                            <td class="title-table-row2">
+                                                                <h5><input name="projectManager" id="projectManager" class="custom-input-yu" type="text" placeholder="Project Manager" /></h5>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="title-table-row1">
+                                                                <h5 class="mb-0">Task ID <span class="text-danger">*</span> : </h5>
+                                                            </td>
+                                                            <td class="title-table-row2">
+                                                                <h5><input name="taskId" id="taskId" class="custom-input-yu" type="text" placeholder="Task ID " /></h5>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div>
+                                                <div class="card-header accordionAddForm">
+                                                    <div class="row">
+                                                        <div class="col-1 pr-0">
+                                                            <button class="btn btn-float btn-round-border-yu waves-effect waves-light btn-round-yu mr-0 toggle-accordion">
+                                                                <i class="ft-chevrons-down"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-11 pl-0 card-header-inputs-div">
+                                                            <div class="row mb-2">
+                                                                <div class="col-lg-4 col-6">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label"><span>Part Name <span class="text-danger">*</span> :</span></p>
+                                                                        <input type="text" name="partName" id="partName" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-6">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label"><span>Supplier Name <span class="text-danger">*</span> :</span></p>
+                                                                        <input type="text" name="partSupplier" id="partSupplier" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-6 mt-half">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label mr-half"><span>Type <span class="text-danger">*</span> :</span></p>
+                                                                        <select name="partType" id="partType" class="form-control" disabled>
+                                                                            <option value="" disabled selected>Select</option>
+                                                                            <option value="Casting">Casting</option>
+                                                                            <option value="Plastics">Plastics</option>
+                                                                            <option value="Forging">Forging</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-6">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label"><span>Part No <span class="text-danger">*</span> :</span></p>
+                                                                        <input type="text" name="partNumber" id="partNumber" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-6">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label mr-half"><span>Make/Buy <span class="text-danger">*</span> :</span></p>
+                                                                        <select name="partMakeBuy" class="form-control" id="partMakeBuy" disabled>
+                                                                            <option value="" disabled selected>Select</option>
+                                                                            <option value="Make">Make</option>
+                                                                            <option value="Buy">Buy</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-6 mt-half">
+                                                                    <div class="fixed_fields">
+                                                                        <p class="label"><span># of Cavities <span class="text-danger">*</span> :</span></p>
+                                                                        <input type="text" name="partCavities" id="partCavities" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- accordion start -->
+                                                <div id="accordionFromWrap" role="tablist" aria-multiselectable="true">
+                                                    <div class="card accordion collapse-icon accordion-icon-rotate left">
+                                                        <a id="heading21" class="card-header " data-toggle="collapse"
+                                                            href="#accordion21" aria-expanded="false"
+                                                            aria-controls="accordion21">
+                                                            <div class="card-title lead">Supplier Sourcing</div>
+                                                        </a>
+                                                        <div id="accordion21" role="tabpanel" data-parent="#accordionFromWrap"
+                                                            aria-labelledby="heading21" class="collapse">
+                                                            <div class="card-content">
+                                                                <div class="card-body accordionFromWrap_body">
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Final design ready to kick off child parts</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control" id="SourcingSupplier_1_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="SourcingSupplier_1_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" value="0" type="number" id="SourcingSupplier_1_Difference" readonly/>
+                                                                                <input class="input-status rounded-input-status-blue form-control" value="Open" type="text" id="SourcingSupplier_1_status" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Sourcing Decision Series Production Tools</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control" id="SourcingSupplier_2_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control" id="SourcingSupplier_2_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SourcingSupplier_2_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SourcingSupplier_2_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">CIJ Approval Series Production Tools</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control" id="SourcingSupplier_3_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="SourcingSupplier_3_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SourcingSupplier_3_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SourcingSupplier_3_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">LOI - Series Production Tools</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="SourcingSupplier_4_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control" id="SourcingSupplier_4_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SourcingSupplier_4_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SourcingSupplier_4_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Release PO - Series Production Tools</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="SourcingSupplier_5_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="SourcingSupplier_5_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SourcingSupplier_5_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SourcingSupplier_5_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a id="heading22" class="card-header " data-toggle="collapse"
+                                                            href="#accordion22" aria-expanded="false"
+                                                            aria-controls="accordion22">
+                                                            <div class="card-title lead collapsed">Tooling Design</div>
+                                                        </a>
+                                                        <div id="accordion22" role="tabpanel" data-parent="#accordionFromWrap"
+                                                            aria-labelledby="heading22" class="collapse" aria-expanded="false">
+                                                            <div class="card-content">
+                                                                <div class="card-body">
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Send all Design & Engineering data to supplier for evaluation</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="ToolingDesign_1_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="ToolingDesign_1_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="ToolingDesign_1_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="ToolingDesign_1_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">DFM with supplier for all child parts</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="ToolingDesign_2_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="ToolingDesign_2_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="ToolingDesign_2_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="ToolingDesign_2_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">All queries resolved and Go-ahead given to suplier for development</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="ToolingDesign_3_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="ToolingDesign_3_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="ToolingDesign_3_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="ToolingDesign_3_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Design ready at supplier for evaluation with Engineering & Quality</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="ToolingDesign_4_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="ToolingDesign_4_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="ToolingDesign_4_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="ToolingDesign_4_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Design approval given to supplier</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="ToolingDesign_5_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="ToolingDesign_5_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="ToolingDesign_5_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="ToolingDesign_5_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a id="heading23" class="card-header " data-toggle="collapse"
+                                                            href="#accordion23" aria-expanded="false"
+                                                            aria-controls="accordion23">
+                                                            <div class="card-title lead collapsed">Manufacturing </div>
+                                                        </a>
+                                                        <div id="accordion23" role="tabpanel" data-parent="#accordionFromWrap"
+                                                            aria-labelledby="heading23" class="collapse" aria-expanded="false">
+                                                            <div class="card-content">
+                                                                <div class="card-body">
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">All RM for tooling ordered and received</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="Manufacturing_1_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="Manufacturing_1_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_1_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_1_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Rough machining completed</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date" class="form-control plannedDateInput" id="Manufacturing_2_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date" class="form-control actualDateInput" id="Manufacturing_2_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_2_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_2_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Final machining done at supplier</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_3_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_3_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_3_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_3_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Assembly of tools
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_4_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_4_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_4_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_4_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Trial at supplier and parts T0
+                                                                                parts submitted for review at Minda</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_5_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_5_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_5_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_5_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">
+                                                                                Tools updated with required correction</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_6_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_6_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_6_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_6_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">T1 trials done and parts submitted
+                                                                                at Minda</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_7_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_7_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_7_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_7_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">All relevant quality and
+                                                                                engineering documents submitted</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_8_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_8_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_8_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_8_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Parts submitted for Grain Approval
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_9_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_9_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_9_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_9_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Grain approval given to supplier
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_10_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_10_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_10_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_10_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Tools sent to grainer</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_11_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_11_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_11_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_11_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Graining completed & parts produced
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_12_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_12_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_12_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_12_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Grain parts approved</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="Manufacturing_13_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="Manufacturing_13_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="Manufacturing_13_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="Manufacturing_13_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a id="heading24" class="card-header " data-toggle="collapse"
+                                                            href="#accordion24" aria-expanded="false"
+                                                            aria-controls="accordion24">
+                                                            <div class="card-title lead collapsed">Series Production</div>
+                                                        </a>
+                                                        <div id="accordion24" role="tabpanel" data-parent="#accordionFromWrap"
+                                                            aria-labelledby="heading24" class="collapse" aria-expanded="false">
+                                                            <div class="card-content">
+                                                                <div class="card-body">
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Tools shifting approval provided to
+                                                                                supplier to move tools</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="SeriesProduction_1_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="SeriesProduction_1_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SeriesProduction_1_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SeriesProduction_1_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Tools shifted to series location
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="SeriesProduction_2_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="SeriesProduction_2_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SeriesProduction_2_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SeriesProduction_2_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Parts produced and submitted for
+                                                                                approval</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="SeriesProduction_3_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="SeriesProduction_3_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SeriesProduction_3_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SeriesProduction_3_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Series go-ahead given to supplier
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="SeriesProduction_4_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="SeriesProduction_4_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="SeriesProduction_4_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="SeriesProduction_4_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a id="heading25" class="card-header " data-toggle="collapse"
+                                                            href="#accordion25" aria-expanded="false"
+                                                            aria-controls="accordion25">
+                                                            <div class="card-title lead collapsed">PPAP</div>
+                                                        </a>
+                                                        <div id="accordion25" role="tabpanel" data-parent="#accordionFromWrap"
+                                                            aria-labelledby="heading25" class="collapse" aria-expanded="false">
+                                                            <div class="card-content">
+                                                                <div class="card-body">
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">PPAP activities done</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="PPAP_1_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="PPAP_1_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="PPAP_1_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="PPAP_1_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">Supplier Quality audit at supplier
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="PPAP_2_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="PPAP_2_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="PPAP_2_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="PPAP_2_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+        
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-lg-4 col-md-12 pl-half">
+                                                                            <p class="label">PPAP approved</p>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Planned Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control plannedDateInput"
+                                                                                    id="PPAP_3_PlannedDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-4">
+                                                                            <div class="fixed_fields">
+                                                                                <p class="label"><span>Actual Date :</span></p>
+                                                                                <input type="date"
+                                                                                    class="form-control actualDateInput"
+                                                                                    id="PPAP_3_ActualDate">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-2 col-md-4">
+                                                                            <div>
+                                                                                <div class="badge badge-success round-disabled">
+                                                                                </div>
+                                                                                <input class="input-diff form-control rounded-input-grey" id="PPAP_3_Difference" value="0" type="number" readonly/>
+                                                                                <input class="input-status form-control rounded-input-status-blue" id="PPAP_3_Status" value="Open" type="text" readonly/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- accordion start Ends-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input name="rowId" id="rowId" class="custom-input-yu" type="hidden" placeholder="Row Id" />
+                            <button type="submit" name="btnSave" id="btnSave"  onclick="postToolingForm()" class="btn-width btn btn-primary text-white rounded mr-1">
+                                <i class="la la-check-square-o"></i> Save
+                            </button>
+                            <button type="submit" name="btnUpdate" id="btnUpdate"  onclick="updateToolingForm()" class="btn-width btn btn-primary text-white rounded mr-1">
+                                <i class="la la-check-square-o"></i> Update
+                            </button>
+                            <button type="button" data-dismiss="modal" class="btn-width btn btn-secondary text-white rounded">
+                                <i class="ft-x"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Add modal -->
+
+            <!-- filter modal -->
+            <div class="modal right fade text-left" id="filter_modal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class>Filter</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card default-collapse collapse-icon accordion-icon-rotate">
+                                <a id="headingCollapse11" class="card-header info" data-toggle="collapse"
+                                    href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                    <div class="card-title lead">Project ID</div>
+                                </a>
+                                <div id="collapse11" role="tabpanel" aria-labelledby="headingCollapse11"
+                                    class="collapse">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="fixed-height">
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="projectId1">
+                                                        <label class="custom-control-label"
+                                                            for="projectId1">Minda001</label>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="projectId2">
+                                                        <label class="custom-control-label"
+                                                            for="projectId2">Minda002</label>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a id="headingCollapse12" class="card-header info" data-toggle="collapse"
+                                    href="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                    <div class="card-title lead collapsed">Task ID</div>
+                                </a>
+                                <div id="collapse12" role="tabpanel" aria-labelledby="headingCollapse12"
+                                    class="collapse" aria-expanded="false">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="fixed-height">
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="taskID1">
+                                                        <label class="custom-control-label"
+                                                            for="taskID1">Minda_Task_001</label>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="taskID2">
+                                                        <label class="custom-control-label"
+                                                            for="taskID2">Minda_Task_002</label>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a id="headingCollapse13" class="card-header info" data-toggle="collapse"
+                                    href="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                    <div class="card-title lead collapsed">Part Name</div>
+                                </a>
+                                <div id="collapse13" role="tabpanel" aria-labelledby="headingCollapse13"
+                                    class="collapse" aria-expanded="false">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="fixed-height">
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="partName1">
+                                                        <label class="custom-control-label"
+                                                            for="partName1">Part_name_001</label>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="partName2">
+                                                        <label class="custom-control-label"
+                                                            for="partName2">Part_name_002</label>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a id="headingCollapse14" class="card-header info" data-toggle="collapse"
+                                    href="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                                    <div class="card-title lead collapsed">Part Number</div>
+                                </a>
+                                <div id="collapse14" role="tabpanel" aria-labelledby="headingCollapse14"
+                                    class="collapse" aria-expanded="false">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="fixed-height">
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="partNumber1">
+                                                        <label class="custom-control-label"
+                                                            for="partNumber1">Part_number_001</label>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="customCheck" id="partNumber2">
+                                                        <label class="custom-control-label"
+                                                            for="partNumber2">Part_number_002</label>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-width btn btn-primary text-white rounded mr-1">
+                                <i class="la la-check-square-o"></i>Apply
+                            </button>
+                            <button type="button" data-dismiss="modal"
+                                class="btn-width btn btn-secondary text-white rounded">
+                                <i class="ft-x"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- filter modal -->
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
+                class="float-md-left d-block d-md-inline-block">Copyright &copy; 2022 <a
+                    class="text-bold-800 grey darken-2" href="https://sparkminda.com"
+                    target="_blank">All Rights Reserved by Spark Minda</a></span><span id="scroll-top"></span></span></p>
+    </footer>
+    <!-- END: Footer-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/js/material-vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/core/app-menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/pages/material-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/calendar-list-view.js"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <!-- END: Page JS-->
+
+    <script src="main.js"></script>
+    <script src="backend.js"></script>
+
+
+</body>
+<!-- END: Body-->
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description"
+        content="">
+    <meta name="keywords"
+        content="admin template, Yashuss Unlimitedtemplate, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <title>Tooling Form List View</title>
+    
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://sparkminda.com/wp-content/uploads/2016/06/favicon.png">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/fonts/material-icons/material-icons.css">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/css/material-vendors.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material-extended.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/material-colors.css">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/core/menu/menu-types/material-vertical-menu.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/calendar-list-view.css">
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/css/media.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body
+    class="vertical-layout vertical-menu material-vertical-layout material-layout 2-columns fixed-navbar menu-collapsed"
+    data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <!-- BEGIN: Header-->
+    <nav
+        class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-primary navbar-shadow">
+        <div class="navbar-wrapper">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav flex-row">
+                    <li class="nav-item mobile-menu d-md-none mr-auto"><a
+                            class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
+                                class="ft-menu font-large-1"></i></a></li>
+                    <li class="nav-item"><a class="navbar-brand" href="index.html">
+                            <img class="brand-logo-1" alt="Yashuss Unlimitedlogo"
+                                src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/images/logo/logo.png">
+
+                            <img class="brand-logo-2" alt="Yashuss Unlimitedlogo"
+                                src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/images/logo/yu_ball.png">
+
+                        </a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
+                            data-target="#navbar-mobile"><i class="material-icons mt-50">more_vert</i></a></li>
+                </ul>
+            </div>
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle" href="#"><i
+                                    class="ft-menu"></i></a></li>
+                        <!-- <li class="nav-item"><a class="nav-link nav-link-expand" href="#"><i
+                                    class="ficon ft-maximize"></i></a></li> -->
+                        <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#">
+                                <!-- <i
+                                    class="material-icons">search</i></a>
+                            <div class="search-input">
+                                <input class="input round form-control search-box" type="text"
+                                    placeholder="Explore YU Admin" tabindex="0" data-search="template-list">
+                                <div class="search-input-close"><i class="ft-x"></i></div>
+                                <ul class="search-list"></ul>
+                                <div class="dropdown-menu arrow">
+                                    <div class="dropdown-item">
+                                        <input class="round form-control" type="text" placeholder="Search Here">
+                                    </div>
+                                </div>
+                            </div> -->
+                                <h3 class="content-header-title mb-0 text-white">Tooling Form</h3>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--<ul class="nav navbar-nav float-right">
+                        <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"
+                                id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><i class="flag-icon flag-icon-in"></i><span
+                                    class="selected-language"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"
+                                    data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a
+                                    class="dropdown-item" href="#" data-language="fr"><i
+                                        class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#"
+                                    data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a>
+                                <a class="dropdown-item" href="#" data-language="en"><i
+                                        class="flag-icon flag-icon-in"></i>India</a></div>
+                        </li>
+                        <li class="dropdown dropdown-user nav-item"><a
+                                class="dropdown-toggle nav-link dropdown-user-link" href="#"
+                                data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">Ami Sheth</span><span
+                                    class="avatar avatar-online"><img
+                                        src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/images/portrait/small/Ami-sheth.png"
+                                        alt="avatar"><i></i></span></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="user-profile.html"><i
+                                        class="material-icons">person_outline</i> Edit Profile</a>
+                                <a class="dropdown-item" href="./change_theme.html"><i class="ft-layers"></i>Change
+                                    Theme</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login-advanced.html"><i
+                                        class="material-icons">power_settings_new</i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>-->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+
+    <div class="main-menu material-menu menu-fixed menu-light menu-accordion    menu-shadow "
+        data-scroll-to-active="true">
+        <div class="user-profile mb-0"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+                <li class="active nav-item"><a href="minda_form_updated.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="51.925" height="57.544"
+                            viewBox="0 0 51.925 57.544">
+                            <g id="web-design" transform="translate(-25)">
+                                <path id="Path_501" data-name="Path 501"
+                                    d="M57.594,0H26.686A1.686,1.686,0,0,0,25,1.686V6.743H57.594Z" fill="#545766" />
+                                <path id="Path_502" data-name="Path 502"
+                                    d="M351.743,1.686A1.686,1.686,0,0,0,350.058,0H345V6.743h6.743Z"
+                                    transform="translate(-284.035)" fill="#545766" />
+                                <path id="Path_503" data-name="Path 503" d="M130,150h19.107v3.484H130Z"
+                                    transform="translate(-93.199 -133.141)" fill="#545766" />
+                                <path id="Path_504" data-name="Path 504"
+                                    d="M57.111,117.2l10.6-10.6V90H25v33.942a1.686,1.686,0,0,0,1.686,1.686h19.4a13.01,13.01,0,0,1,2.88-4.872,11.308,11.308,0,0,1,8.143-3.555ZM33.429,95.058a1.686,1.686,0,0,1,1.686-1.686H57.594a1.686,1.686,0,0,1,1.686,1.686v6.856a1.686,1.686,0,0,1-1.686,1.686H35.115a1.686,1.686,0,0,1-1.686-1.686Zm1.686,12.026H57.594a1.686,1.686,0,1,1,0,3.372H35.115a1.686,1.686,0,0,1,0-3.372ZM46.354,117.2H35.115a1.686,1.686,0,1,1,0-3.372H46.354a1.686,1.686,0,1,1,0,3.372Z"
+                                    transform="translate(0 -79.885)" fill="#545766" />
+                                <path id="Path_505" data-name="Path 505"
+                                    d="M361.3,263.268a5.057,5.057,0,0,0-7.153,0l-7.1,7.1a11.86,11.86,0,0,1,7.152,7.153l7.1-7.1a5.057,5.057,0,0,0,0-7.152Z"
+                                    transform="translate(-285.853 -232.363)" fill="#545766" />
+                                <path id="Path_506" data-name="Path 506"
+                                    d="M227.21,362a7.968,7.968,0,0,0-5.821,2.509,10.068,10.068,0,0,0-2.6,5.717,20.193,20.193,0,0,1-2.083,6.133,1.686,1.686,0,0,0,1.476,2.5h9.024a8.429,8.429,0,1,0,0-16.859Z"
+                                    transform="translate(-169.977 -321.314)" fill="#545766" />
+                            </g>
+                        </svg>
+                        <span class="menu-title" data-i18n="Chat">Form</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END: Main Menu-->
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <!-- Calendar List View -->
+            <section id="configuration">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Tooling List View</h4>
+                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-actions-div">
+                                    <div class="d-flex">
+                                        <button
+                                            class="btn btn-float btn-secondary waves-effect waves-light btn-round-yu mr-1"
+                                            id="">
+                                            <i class="ft-upload"></i>
+                                        </button>
+                                        <button
+                                            class="btn btn-float btn-secondary waves-effect waves-light btn-round-yu  mr-1"
+                                            id="">
+                                            <i class="ft-clock"></i>
+                                        </button>
+                                        <button
+                                            class="btn btn-float btn-secondary waves-effect waves-light btn-round-yu  mr-1"
+                                            id="">
+                                            <i class="ft-plus"></i>
+                                        </button>
+                                        <button
+                                            class="btn btn-float btn-secondary waves-effect waves-light btn-round-yu "
+                                            id="">
+                                            <i class="ft-edit-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content collapse show">
+                                <div class="card-body card-dashboard ">
+                                    <div class="list-view-div">
+                                        <table id="tooling_list_view">
+                                            <thead>
+                                                <tr class="tableizer-firstrow">
+                                                    <th>#</th>
+                                                    <th>Project ID</th>
+                                                    <th>Task ID</th>
+                                                    <th>Part Name</th>
+                                                    <th>Part Number</th>
+                                                    <th>Supplier</th>
+                                                    <th>Make / Buy</th>
+                                                    <th>Casting / Plastics / Forging</th>
+                                                    <th>Number of Cavities</th>
+                                                    <th>Current Step</th>
+                                                    <th>Current Step Planned Date Date</th>
+                                                    <th># of days Delay</th>
+                                                    <th>Current Status</th>
+                                                    <th>Final Closure Date</th>
+                                                    <th>Due in Days</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1</th>
+                                                    <td>Minda001</td>
+                                                    <td>Minda_Task_001</td>
+                                                    <td><a>Part_name_001</a></td>
+                                                    <td>Part_number_001</td>
+                                                    <td>Supplier_001</td>
+                                                    <td>Make</td>
+                                                    <td>Casting</td>
+                                                    <td class="text-right">2</td>
+                                                    <td class="text-right">2</td>
+                                                    <td class="text-right">11/28/2021</td>
+                                                    <td class="text-right">0</td>
+                                                    <td>Completed</td>
+                                                    <td class="text-right">11/28/2021</td>
+                                                    <td class="text-right">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>2</th>
+                                                    <td>Minda002</td>
+                                                    <td>Minda_Task_002</td>
+                                                    <td><a>Part_name_002</a></td>
+                                                    <td>Part_number_002</td>
+                                                    <td>Supplier_002</td>
+                                                    <td>Make</td>
+                                                    <td>Forging</td>
+                                                    <td class="text-right">1</td>
+                                                    <td class="text-right">1</td>
+                                                    <td class="text-right">12/28/2021</td>
+                                                    <td class="text-right">0</td>
+                                                    <td>Completed</td>
+                                                    <td class="text-right">12/28/2021</td>
+                                                    <td class="text-right">0</td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/ Calendar List View -->
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
+                class="float-md-left d-block d-md-inline-block">Copyright &copy; 2021 <a
+                    class="text-bold-800 grey darken-2" href="https://Yashussunlimited.com"
+                    target="_blank">YashussUnlimited</a></span><span id="scroll-top"></span></span></p>
+    </footer>
+    <!-- END: Footer-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/js/material-vendors.min.js">
+    </script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script
+        src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/vendors/js/tables/datatable/datatables.min.js">
+    </script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/core/app-menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/pages/material-app.js">
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/tables/datatables/datatable-basic.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Yu-ui-assets/ui-assets@main/app-assets/js/scripts/calendar-list-view.js">
+    </script>
+
+    <!-- END: Page JS-->
+
+
+    <script src="./main.js"></script>
+    <!-- END: Page JS-->
+
+</body>
+<!-- END: Body-->
+
+</html>

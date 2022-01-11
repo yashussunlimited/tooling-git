@@ -1,0 +1,44 @@
+.from-parent-div {
+    height: 100%;
+    padding-bottom:2rem ;
+}
+
+.accordion-button-adjust {
+    padding: 6px 24px;
+    margin-top: -10px;
+}
+
+.accordion-button-adjust.accordion-button:focus,.from-parent-div .accordion-button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.col-form-label.formLabel {
+    font-size: 14px;
+    padding: 6px 0;
+}
+
+.from-parent-div .accordion-flush .accordion-item .accordion-button.accordion-button-adjust {
+    border-radius: 50px;
+}
+.from-parent-div .accordion-flush .accordion-item{
+    /* padding-right: 1rem; */
+}
+
+.from-parent-div .accordion-header{
+    margin-left: -0.5rem;
+}
+.hr-class{
+    background-color: rgba(0,0,0,.125);
+    opacity: 1;
+}
+.padding-top-1{
+    padding-top:10px;
+}
+
+.color-adjust{
+    background: #bae5fa;
+}
+.padding-left-6{
+    padding-left: 6rem;
+}
